@@ -40,9 +40,12 @@ class Car(Vehicle):
     def __init__(self):
         Vehicle.__init__(self)
         self.maxSpeed = 0
-        self.type = 'BUS'
+        self.type = 'CAR'
         self.id = 0
         self.consumption = 0
+
+    def get_type(self):
+        return self.type
 
     def set_id(self,tmp):
         self.id = tmp
@@ -57,7 +60,10 @@ class Car(Vehicle):
         self.consumption = con
 
     def print_info(self):
-        print(f'{self.get_id()}: It is Car, Power = {self.power}, max Speed = {self.maxSpeed}')
+        print(f'{self.get_id()}: It is Car, Power = {self.power}, max Speed = {self.maxSpeed}  consumption = {self.consumption}')
+
+    def get_info(self):
+        return f'{self.get_id()}: It is Car, Power = {self.power}, max Speed = {self.maxSpeed}  consumption = {self.consumption}'
 
 
 
@@ -90,6 +96,9 @@ class Bus(Vehicle):
     def new_func(self):
         return self.capacity * 75 / self.power
 
+    def get_info(self):
+        return f'{self.get_id()}: It is BUS, Power = {self.power}, capacity = {self.capacity}'
+
 
 class Truck(Vehicle):
     def __init__(self):
@@ -120,6 +129,10 @@ class Truck(Vehicle):
 
     def new_func(self):
         return self.maxWeight / self.power
+
+    def get_info(self):
+        return f'{self.get_id()}: It is TRUCK, Power = {self.power}, maxWeight = {self.maxWeight}'
+
 
 def file_in():
     f = open('in.txt')

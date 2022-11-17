@@ -8,9 +8,14 @@ if len(objects) == 0:
 else:
     print("Container is filled")
     print(f"Contains {len(objects)} element(s)")
+    sort_objects()
     for i in objects:
         i.print_info()
-        print(i.new_func())
+    f2 = open('out.txt', 'w')
+    for i in objects:
+        if i.get_type() == 'CAR':
+            f2.write(i.get_info()+'\n')
+
     clear_container()
     print("Container is empty")
     print(f"Contains {len(objects)} element(s)")
