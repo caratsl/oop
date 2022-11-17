@@ -59,6 +59,9 @@ class Bus(Vehicle):
     def print_info(self):
         print(f'{self.get_id()}: It is BUS, Power = {self.power}, capacity = {self.capacity}')
 
+    def get_info(self):
+        return f'{self.get_id()}: It is BUS, Power = {self.power}, capacity = {self.capacity}'
+
 
 class Truck(Vehicle):
     def __init__(self):
@@ -82,6 +85,10 @@ class Truck(Vehicle):
 
     def print_info(self):
         print(f'{self.get_id()}: It is TRUCK, Power = {self.power}, maxWeight = {self.maxWeight}')
+
+    def get_info(self):
+        return f'{self.get_id()}: It is TRUCK, Power = {self.power}, maxWeight = {self.maxWeight}'
+
 
 def file_in():
     f = open('in.txt')
