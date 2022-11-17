@@ -9,7 +9,7 @@ else:
     print("Container is filled")
     print(f"Contains {len(objects)} element(s)")
     for i in objects:
-        i.print_info(i)
+        i.print_info()
     clear_container()
     print("Container is empty")
     print(f"Contains {len(objects)} element(s)")
