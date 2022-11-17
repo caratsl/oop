@@ -59,6 +59,9 @@ class Car(Vehicle):
     def set_consumption(self, con):
         self.consumption = con
 
+    def new_func(self):
+        return 5 * 75 / self.power
+
     def print_info(self):
         print(f'{self.get_id()}: It is Car, Power = {self.power}, max Speed = {self.maxSpeed}  consumption = {self.consumption}')
 
@@ -97,7 +100,7 @@ class Bus(Vehicle):
         return self.capacity * 75 / self.power
 
     def get_info(self):
-        return f'{self.get_id()}: It is BUS, Power = {self.power}, capacity = {self.capacity}'
+        return f'{self.get_id()}: It is BUS, Power = {self.power}, capacity = {self.capacity} consumption = {self.consumption}'
 
 
 class Truck(Vehicle):
@@ -131,7 +134,7 @@ class Truck(Vehicle):
         return self.maxWeight / self.power
 
     def get_info(self):
-        return f'{self.get_id()}: It is TRUCK, Power = {self.power}, maxWeight = {self.maxWeight}'
+        return f'{self.get_id()}: It is TRUCK, Power = {self.power}, maxWeight = {self.maxWeight} consumption = {self.consumption}'
 
 
 def file_in():
