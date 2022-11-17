@@ -18,6 +18,7 @@ objects = []
 class Vehicle:
     def __init__(self):
         self.power = 0
+        self.consumption = 0
 
     def set_power(self,in_power):
         self.power = in_power
@@ -43,8 +44,11 @@ class Bus(Vehicle):
     def set_capacity(self,cap):
         self.capacity = cap
 
+    def set_consumption(self,con):
+        self.consumption = con
+
     def print_info(self):
-        print(f'{self.get_id(self)}: It is BUS, Power = {self.power}, capacity = {self.capacity}')
+        print(f'{self.get_id(self)}: It is BUS, Power = {self.power}, capacity = {self.capacity} consumption = {self.consumption}')
 
 
 class Truck(Vehicle):
@@ -63,8 +67,12 @@ class Truck(Vehicle):
     def set_maxWeight(self,mw):
         self.maxWeight = mw
 
+    def set_consumption(self, con):
+        self.consumption = con
+
     def print_info(self):
-        print(f'{self.get_id(self)}: It is TRUCK, Power = {self.power}, maxWeight = {self.maxWeight}')
+        print(
+            f'{self.get_id(self)}: It is BUS, Power = {self.power}, maxWeight = {self.maxWeight} consumption = {self.consumption}')
 
 def file_in():
     f = open('in.txt')
@@ -82,9 +90,11 @@ def file_in():
                 a = text.split(' ')
                 power = int(a[0])
                 tmp = int(a[1])
+                con = int(a[2])
                 veh.set_power(veh,in_power=power)
                 veh.set_capacity(veh,cap=tmp)
                 veh.set_id(veh,tmp= gen_id(objects))
+                veh.set_consumption(veh,con=con)
                 objects.append(veh)
             elif type == 2:
                 veh = Truck
@@ -92,9 +102,11 @@ def file_in():
                 a = text.split(' ')
                 power = int(a[0])
                 tmp = int(a[1])
+                con = int(a[2])
                 veh.set_power(veh,in_power=power)
                 veh.set_maxWeight(veh,mw=tmp)
                 veh.set_id(veh, tmp=gen_id(objects))
+                veh.set_consumption(veh, con=con)
                 objects.append(veh)
 
 def clear_container():
