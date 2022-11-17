@@ -46,6 +46,9 @@ class Bus(Vehicle):
     def print_info(self):
         print(f'{self.get_id(self)}: It is BUS, Power = {self.power}, capacity = {self.capacity}')
 
+    def new_func(self):
+        return self.capacity * 75 / self.power
+
 
 class Truck(Vehicle):
     def __init__(self):
@@ -65,6 +68,9 @@ class Truck(Vehicle):
 
     def print_info(self):
         print(f'{self.get_id(self)}: It is TRUCK, Power = {self.power}, maxWeight = {self.maxWeight}')
+
+    def new_func(self):
+        return self.maxWeight / self.power
 
 def file_in():
     f = open('in.txt')
