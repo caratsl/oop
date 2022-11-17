@@ -26,6 +26,26 @@ class Vehicle:
         return self.type
 
 
+class Car(Vehicle):
+    def __init__(self):
+        Vehicle.__init__(self)
+        self.maxSpeed = 0
+        self.type = 'BUS'
+        self.id = 0
+
+    def set_id(self,tmp):
+        self.id = tmp
+
+    def get_id(self):
+        return self.id
+
+    def set_maxSpeed(self,ms):
+        self.maxSpeed = ms
+
+    def print_info(self):
+        print(f'{self.get_id(self)}: It is Car, Power = {self.power}, max Speed = {self.maxSpeed}')
+
+
 
 class Bus(Vehicle):
     def __init__(self):
@@ -94,6 +114,16 @@ def file_in():
                 tmp = int(a[1])
                 veh.set_power(veh,in_power=power)
                 veh.set_maxWeight(veh,mw=tmp)
+                veh.set_id(veh, tmp=gen_id(objects))
+                objects.append(veh)
+            elif type == 3:
+                veh = Car
+                text = f.readline()
+                a = text.split(' ')
+                power = int(a[0])
+                tmp = int(a[1])
+                veh.set_power(veh,in_power=power)
+                veh.set_maxSpeed(veh, ms=tmp)
                 veh.set_id(veh, tmp=gen_id(objects))
                 objects.append(veh)
 
