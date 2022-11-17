@@ -150,10 +150,15 @@ def file_in():
             if type == 1:  # это BUS
                 veh = Bus()
                 text = f.readline()
-                a = text.split(' ')
-                power = int(a[0])
-                tmp = int(a[1])
-                con = int(a[2])
+                try:
+                    a = text.split(' ')
+                    power = int(a[0])
+                    tmp = int(a[1])
+                    con = int(a[2])
+                except:
+                    print('incorrect input values')
+                    break
+
                 veh.set_consumption(con=con)
                 veh.set_power(in_power=power)
                 veh.set_capacity(cap=tmp)
@@ -162,10 +167,14 @@ def file_in():
             elif type == 2:
                 veh = Truck()
                 text = f.readline()
-                a = text.split(' ')
-                power = int(a[0])
-                tmp = int(a[1])
-                con = int(a[2])
+                try:
+                    a = text.split(' ')
+                    power = int(a[0])
+                    tmp = int(a[1])
+                    con = int(a[2])
+                except:
+                    print('incorrect input values')
+                    break
                 veh.set_power(in_power=power)
                 veh.set_maxWeight(mw=tmp)
                 veh.set_id(tmp=gen_id(objects))
@@ -174,10 +183,14 @@ def file_in():
             elif type == 3:
                 veh = Car()
                 text = f.readline()
-                a = text.split(' ')
-                power = int(a[0])
-                tmp = int(a[1])
-                con = int(a[2])
+                try:
+                    a = text.split(' ')
+                    power = int(a[0])
+                    tmp = int(a[1])
+                    con = int(a[2])
+                except:
+                    print('incorrect input values')
+                    break
                 veh.set_consumption(con=con)
                 veh.set_power(in_power=power)
                 veh.set_maxSpeed(ms=tmp)
